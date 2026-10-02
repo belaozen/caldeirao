@@ -15,9 +15,9 @@ Abra **index.html** no navegador do computador. O arquivo contém todo o jogo e 
 | Ação | Comando |
 | --- | --- |
 | Mover | A/D ou ←/→ |
-| Pular / pulo duplo | W, ↑ ou Espaço |
+| Pular / pulo duplo | W ou ↑ |
 | Descer plataforma | S ou ↓ |
-| Dash | Dois toques na mesma direção; segure outra para diagonal |
+| Dash | Espaço; segue a direção segurada (duas = diagonal) ou para onde o personagem olha |
 | Mirar / lançar | Segure / solte o botão esquerdo do mouse |
 | Beber / cancelar mira | Botão direito |
 | Trocar poção | E |
