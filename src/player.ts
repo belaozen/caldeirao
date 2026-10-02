@@ -80,6 +80,7 @@ export function beginDash(p: Player, dx: number, dy = 0) {
   p.vy = p.dashY * DASH.speed;
   burst(p.x, p.y, p.color, 10);
   sfx("dash");
+  if (p.id === 0) tutorialMark("dash");
   updateHUD();
   return true;
 }
