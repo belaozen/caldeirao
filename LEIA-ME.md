@@ -9,8 +9,8 @@ O jogo é **solo contra o bot**: você controla Íris; Malva é controlada pelo 
 | Ação | Comando |
 |---|---|
 | Mover na horizontal | A / D ou ← / → |
-| Dash com breve invencibilidade | Dois toques em uma direção; segure outra para diagonal |
-| Pular / pulo duplo | W, ↑ ou Espaço |
+| Dash com breve invencibilidade | Espaço; usa a direção segurada ou, sem direção, para onde o personagem estiver olhando |
+| Pular / pulo duplo | W ou ↑ |
 | Descer por uma plataforma | S ou ↓ |
 | Olhar e apontar em 360 graus | Mover o mouse na arena |
 | Mostrar a parábola | Segurar botão esquerdo do mouse |
@@ -27,9 +27,9 @@ P pausa; R reinicia a sessão. Sair da janela pausa o jogo e cancela a mira sem 
 
 ### Dash
 
-Toque duas vezes na mesma direção em até 0,25s. Segure outra direção para diagonal. Repetição automática e teclas equivalentes pressionadas juntas não contam. Espaço volta a pular. O dash dura 0,18 segundo e protege contra dano comum, perigos letais e congelamento durante o movimento. Há um intervalo de 0,85 segundo entre ativações, indicado abaixo da arena.
+Pressione **Espaço** para usar o dash. Se estiver segurando uma direção, o dash segue nela; duas direções produzem diagonal. Sem direção pressionada, ele segue para onde o personagem estiver olhando. O dash dura 0,18 segundo e protege contra dano comum, perigos letais e congelamento durante o movimento. Há um intervalo de 0,85 segundo entre ativações, indicado abaixo da arena.
 
-Funciona no chão e no ar, sem renovar o pulo duplo. Bater em uma parede ou no limite lateral interrompe o dash e sua invencibilidade; escudos e outras proteções anteriores continuam com sua própria duração. Um dash durante a mira a cancela sem gastar a poção. Soltar o botão do mouse depois desse cancelamento não lança. Personagens congelados ou eliminados não podem ativá-lo.
+Funciona no chão e no ar, sem renovar o pulo duplo. Bater em uma parede ou no limite lateral interrompe o dash e sua invencibilidade; escudos e outras proteções anteriores continuam com sua própria duração. Um dash durante a mira a cancela sem gastar a poção. Personagens congelados ou eliminados não podem ativá-lo.
 
 ## Misturas e insumos
 
@@ -89,9 +89,9 @@ Verificações automatizadas cobrem coleta, inventário de três poções, troca
 
 ## Hordas (experimental)
 
-Use os botões Duelo normal / Hordas · teste; trocar reinicia a partida. Hordas: ondas de 2, 3, 2+2, 3+2, 3+3 e assim por diante, em grupos de no máximo 3. Cada grupo precisa ser eliminado antes do próximo. Há 2s de aviso de chegada, 4s entre ondas e cura de 1 HP ao completar uma onda. Três vidas; morrer perde uma vida e as poções. Cada estrela dá uma vida extra e só pode ser coletada uma vez por onda; volta na onda seguinte. R recomeça o modo atual.
+Use os botões Duelo normal / Hordas · teste; trocar reinicia a partida. Hordas: ondas de 1, 2, 3, 2+2, 3+2, 3+3 e assim por diante, em grupos de no máximo 3. Cada grupo precisa ser eliminado antes do próximo. Há 2s de aviso de chegada, 4s entre ondas e cura de 1 HP ao completar uma onda. Três vidas; morrer perde uma vida e as poções. Nas hordas, cada observatório traz meio coração: é preciso coletar as duas metades para ganhar uma vida extra. Cada metade só pode ser coletada uma vez por onda e volta na onda seguinte. R recomeça o modo atual.
 
-Inimigos alquimistas: normal (3 HP), veloz (2 HP, mais rápido que Íris), grandão (8 HP, maior e lento). Coletam insumos, preparam, bebem e lançam poções; não causam dano ao simples contato e não se ferem entre si. Combustão por poção continua causando dano por contato. Perigos da arena também os atingem. Poções letais continuam letais.
+Inimigos alquimistas: normal (3 HP), veloz (2 HP, mais rápido que Íris), grandão (8 HP, maior e lento). Tipos mais perigosos entram gradualmente e, a cada 4 ondas, os inimigos também ganham vida; a velocidade escala de forma moderada até um limite. Coletam insumos, preparam, bebem e lançam poções; não causam dano ao simples contato e não se ferem entre si. Combustão por poção continua causando dano por contato. Perigos da arena também os atingem. Poções letais continuam letais.
 
 Os boxes voltaram ao ícone único original de cada poção. As descrições de jogar e beber permanecem nas fichas e no manual.
 
@@ -100,13 +100,53 @@ Bots menos agressivos: hordas se movem mais devagar, fazem pequenas pausas e usa
 
 ## Evolução nas hordas
 
-Ao completar uma onda, escolha uma melhoria ou um desbloqueio com a arena pausada. Incêndio, Geada e Elixir começam liberados; Vapor, Ímpeto e Salto lunar precisam de desbloqueio. Ingredientes de combinações bloqueadas não são coletados; o mapa mostra um cadeado.
+Ao completar uma onda, aparecem 3 evoluções aleatórias entre as disponíveis; escolha uma com a arena pausada. Incêndio, Geada e Elixir começam liberados; Vapor, Ímpeto e Salto lunar precisam de desbloqueio. Ingredientes de combinações bloqueadas não são coletados; o mapa mostra um cadeado.
 
-Cinco níveis por poção. Por melhoria: Geada +1s congelamento/+2s escudo; Salto lunar +2s parede; Elixir +1s nuvem/+1 HP cura (máximo 5); Incêndio +15px raio/+1s combustão; Vapor +12px coluna/+2s velocidade; Ímpeto +1s rastro/+2s retaliação. Base das durações: 2/4s, parede 4s, nuvem 3s, combustão 2s, velocidade 4s, rastro 2s e retaliação 4s. Superpulo: 6s. Explosão inicial: raio 60px. Coluna inicial: 32px.
+Cinco níveis por poção. Por melhoria: Geada +1s congelamento/+2s escudo; Salto lunar +2s parede; Elixir +13px no raio da nuvem/+1 HP cura (máximo 5); Incêndio +15px raio/+1s combustão; Vapor +12px coluna/+2s velocidade; Ímpeto +1s rastro/+2s retaliação. Base das durações: 2/4s, parede 4s, nuvem 3s, combustão 2s, velocidade 4s, rastro 2s e retaliação 4s. Superpulo: 6s. Explosão inicial: raio 60px. Nuvem do Elixir começa com raio 42px e cresce por nível. A Geada arremessada explode em raio de 70px no modo Hordas e congela todos os inimigos dentro da área. Coluna inicial: 32px.
 
-Upgrades persistem entre mortes, mas reiniciar ou trocar de modo zera a evolução. Após maximizar tudo, a recompensa de onda é uma vida extra. Estrelas dão vidas extras, não HP; não há teto de três vidas. Duelo preserva as regras anteriores.
+Upgrades persistem entre mortes, mas reiniciar ou trocar de modo zera a evolução. Após maximizar tudo, a recompensa de onda é uma vida extra. Nas hordas, duas metades de coração dão uma vida extra, não HP; não há teto de três vidas. Duelo preserva as regras anteriores.
 
 
 ## Arenas
 
 Seletor acima da arena: Estufa original, Bosque dos Corredores e Ruínas de Cristal. Trocar reinicia a partida, incluindo a evolução. As setas laterais marcam conexões direita/esquerda na mesma altura para jogadores e bots. Poções colidem com os limites. Buracos no piso retornam ao topo. Pontos de insumos, chegada de inimigos, estrelas e portas se adaptam ao mapa selecionado.
+
+
+## Atualização — fases e inimigo Incendiário
+
+- O dash do jogador agora é acionado com **Espaço**. O pulo continua em **W** ou **↑**.
+- Bots possuem uma rotina de destravamento: ao detectar que estão tentando alcançar um alvo sem se mover, tentam salto/dash para sair da situação.
+- Novo inimigo **☄ Incendiário**: 1 HP, pisca, persegue diretamente o jogador, não coleta nem usa poções e permanece visualmente em combustão. Encostar nele causa eliminação imediata (o dash continua invencível).
+- O modo Hordas agora possui três fases: **5 hordas**, depois **7 hordas**, depois **10 hordas**. A dificuldade continua crescendo entre as fases.
+- A interface de Hordas mostra uma barra de progresso da fase atual.
+- Cada grupo continua limitado a no máximo 3 inimigos simultâneos; hordas maiores são divididas em vários grupos.
+
+
+## Atualização — upgrades de personagem
+
+No modo Hordas, Íris agora começa com **4 de vida máxima** e **90% da velocidade-base antiga**. O duelo clássico não foi alterado.
+
+Três novos upgrades podem aparecer entre as 3 escolhas aleatórias:
+
+- **Mais velocidade:** aumenta permanentemente a velocidade-base da corrida durante aquela partida. O primeiro nível praticamente recupera a velocidade antiga; níveis seguintes ultrapassam esse valor.
+- **Mais vida máxima:** aumenta a vida máxima em 1 e também recupera 1 HP imediatamente, sem ultrapassar o novo máximo.
+- **Dispersão:** funciona em ciclos de 3 escolhas. Em 1/3 e 2/3 apenas acumula progresso; em 3/3, cada poção passa a poder ser ativada uma vez adicional antes de desaparecer. Mais 3 níveis concedem outra ativação, até 3 ativações extras. O inventário mostra quantas ativações restam na poção.
+
+Limites atuais de balanceamento: 5 níveis de velocidade, 5 de vida máxima e 9 investimentos em Dispersão. Esses upgrades persistem entre mortes e são zerados ao reiniciar/trocar de modo, como os upgrades de efeitos.
+
+## Áudio sintetizado
+A versão atual usa Web Audio API, sem arquivos externos de som. Os efeitos cobrem movimento, coleta/mistura, lançamento e consumo de poções, efeitos específicos das seis receitas, dano/eliminações, meio-coração/vida extra, início de hordas, Incendiário, upgrades, mudança de fase e vitória. O botão "Som" no topo ativa/desativa todos os efeitos.
+
+## Insumo corrompido
+- Um quarto insumo preto pode aparecer entre os ingredientes normais (aprox. 12%; 15% na chuva de insumos).
+- Ao ser coletado, causa 1 de dano imediatamente.
+- Se houver uma poção pronta, destrói a poção atualmente selecionada, incluindo ativações extras de Dispersão.
+- Se não houver poção pronta mas houver um ingrediente reservado, a mistura parcial é perdida.
+- Possui efeito visual preto/roxo e efeito sonoro próprio.
+
+
+## Tutorial guiado e HUD de arena
+- Novo botão **Tutorial** no seletor de modos. O treino não usa eventos aleatórios e deixa um **Boneco-alvo** parado para praticar.
+- O painel dentro da arena ensina em sequência: mover, pular, usar dash, coletar insumo, preparar poção, mirar, arremessar, preparar outra poção e beber. O passo avança automaticamente ao detectar a ação.
+- Ao concluir, o painel oferece acesso direto ao modo Hordas.
+- Novo **HUD sobre a própria arena** mostra vida, progresso do modo, poção ativa/ativações, insumos carregados e efeitos temporários. Os cartões detalhados abaixo da arena continuam disponíveis.
