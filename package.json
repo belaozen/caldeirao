@@ -1,0 +1,35 @@
+{
+  "name": "caldeirao",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Jogo de arena 2D com alquimia, feito em TypeScript e Canvas. Colete insumos, prepare poções automaticamente e escolha entre arremessar ou beber.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc",
+    "format": "prettier --write .",
+    "check": "tsc && prettier --check . && vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belaozen/caldeirao.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/belaozen/caldeirao/issues"
+  },
+  "homepage": "https://github.com/belaozen/caldeirao#readme",
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "prettier": "^3.9.9",
+    "typescript": "^7.0.2",
+    "vite": "^7.3.6",
+    "vite-plugin-singlefile": "^2.3.3",
+    "vitest": "^3.2.7"
+  }
+}

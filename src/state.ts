@@ -1,0 +1,87 @@
+import type {
+  Mode,
+  GameState,
+  Point,
+  Box,
+  Platform,
+  Wall,
+  ArenaId,
+  Player,
+  Item,
+  Shot,
+  Zone,
+  Star,
+  Particle,
+  FloatText,
+  ArenaEventState,
+  HordeState,
+  Evolution,
+  TutorialState,
+} from "./types";
+import { EVENT_INTERVAL, GATE_PERIOD } from "./config";
+import { ARENAS } from "./arenaLayouts";
+
+export const newArenaEvent = (): ArenaEventState => ({
+  phase: "countdown",
+  remaining: EVENT_INTERVAL,
+  pending: null,
+  type: null,
+  last: null,
+  spawnClock: 0,
+});
+export const newHorde = (): HordeState => ({
+  stage: 1,
+  wave: 1,
+  globalWave: 1,
+  batch: 0,
+  groups: [],
+  pending: [],
+  timer: 0,
+  phase: "spawn",
+  lives: 3,
+  kills: 0,
+  chaserUsed: false,
+  advanceStage: false,
+});
+export const newEvolution = (): Evolution => ({
+  levels: { "00": 0, "11": 0, "22": 0, "01": 0, "02": 0, "12": 0 },
+  unlocked: ["00", "11", "22"],
+  player: { speed: 0, maxHp: 0, dispersion: 0 },
+});
+
+/** All mutable match state. Modules read and write it as `game.<field>`. */
+export const game = {
+  mode: "duel" as Mode,
+  state: "menu" as GameState,
+  arenaId: "classic" as ArenaId,
+  platforms: ARENAS.classic.platforms.map((b) => ({ ...b })) as Platform[],
+  masonry: ARENAS.classic.masonry.map((b) => ({ ...b })) as Box[],
+  spawnSites: (ARENAS.classic.spawnSites ?? []).map((b) => ({ ...b })) as Point[],
+  arenaEvent: newArenaEvent(),
+  gate: { openSide: 0, remaining: GATE_PERIOD },
+  players: [] as Player[],
+  items: [] as Item[],
+  shots: [] as Shot[],
+  zones: [] as Zone[],
+  walls: [] as Wall[],
+  stars: [] as Star[],
+  particles: [] as Particle[],
+  texts: [] as FloatText[],
+  time: 0,
+  keys: new Set<string>(),
+  shake: 0,
+  last: 0,
+  accumulator: 0,
+  sound: true,
+  audio: undefined as AudioContext | undefined,
+  masterGain: undefined as GainNode | undefined,
+  nextSpawn: 0,
+  round: 1,
+  roundWins: [0, 0],
+  hudClock: 0,
+  tutorial: { step: 0, flags: {}, mixes: 0, startX: 0 } as TutorialState,
+  horde: newHorde(),
+  evolution: newEvolution(),
+  resumeAfterManual: false,
+};
+export const mouse = { x: 300, y: 250, inside: false, known: false, leftHeld: false };
