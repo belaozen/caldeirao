@@ -25,6 +25,22 @@ Gere a versão jogável com `npm run build` e abra **dist/index.html** no navega
 
 O botão **Manual / Como jogar** explica receitas, progressão e eventos. Consulte também [LEIA-ME.md](LEIA-ME.md).
 
+## O que mudou em relação à V9
+
+A V9 era um único `index.html` com todo o código embutido, mais uma cópia em `game.js` que precisava ser mantida igual à mão. Esta versão:
+
+- divide o código em módulos TypeScript em `src/` (veja a tabela abaixo);
+- gera o mesmo arquivo único para jogar com `npm run build` (`dist/index.html`), sem cópias para sincronizar;
+- troca os testes `test-*.cjs` por Vitest em `tests/`, cobrindo os mesmos cenários;
+- substitui `preview-arenas.html` pelo parâmetro `?preview=forest` ou `?preview=frost`;
+- corrige o tutorial, que ficava parado no passo do dash.
+
+As regras do jogo não mudaram: os testes originais rodaram sem alteração contra o código novo antes da conversão.
+
+### Como contribuir
+
+Edite os arquivos em `src/` (não o `dist/`), rode `npm run check` antes de enviar e gere o `dist/index.html` com `npm run build` quando precisar mandar o jogo por ZIP.
+
 ## Desenvolvimento
 
 Requer Node.js 20 ou mais novo.
